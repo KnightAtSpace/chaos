@@ -1,0 +1,8 @@
+﻿<NUnitProject>
+    <Settings appbase="..\..\Build\Debug\Common" processModel="Default" domainUsage="Default" />
+    <Config name="Default" binpath="lib;tests;framework" runtimeFramework="net-4.0" binpathtype="Auto">
+        <assembly path="Knight.Common.Test.dll" />
+	<assembly path="Knight.Common.Resources.Test.dll" />
+	<assembly path="Knight.Common.Controls.Wpf.Test.dll" />
+    </Config>
+</NUnitProject>

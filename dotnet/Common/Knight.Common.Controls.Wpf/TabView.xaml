@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="Knight.Common.Controls.Wpf.TabView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/Knight.Common.Controls.Wpf;component/GlobalResourceDictionary.xaml" />
+    </UserControl.Resources>
+    <TabControl Grid.Row="0" Grid.Column="1" Name="CommonTabControl"
+          IsSynchronizedWithCurrentItem="True" 
+          ItemsSource="{Binding TabItemControls}">
+        <TabControl.ItemTemplate>
+            <DataTemplate>
+                <DockPanel DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource AncestorType=TabItem}}">
+                    <TextBlock DockPanel.Dock="Left"
+                               Text="{Binding Path=DisplayName}" 
+                               VerticalAlignment="Center"/>
+                    <Button DockPanel.Dock="Right"
+                            Command="{Binding Path=CloseCommand}"
+                            BorderThickness="0" 
+                            Cursor="Hand"
+                            Focusable="False"
+                            Margin="5,0,0,0"
+                            Padding="0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{StaticResource ImageCloseBoxRed}" Width="12" Height="12"/>
+                        </StackPanel>
+                    </Button>
+                </DockPanel>
+            </DataTemplate>
+        </TabControl.ItemTemplate>
+    </TabControl>
+</UserControl>

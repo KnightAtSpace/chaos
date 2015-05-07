@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="Knight.Common.Controls.Wpf.LogMessageGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
+             xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+             mc:Ignorable="d"
+             Name="LogMessageControl"
+             d:DesignHeight="300" d:DesignWidth="600">
+    <UserControl.Resources>
+        <xcdg:DataGridCollectionViewSource x:Key="MessageGridViewSource" Source="{Binding Path=LogMessages, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}">
+            <xcdg:DataGridCollectionViewSource.SortDescriptions>
+                <scm:SortDescription PropertyName="Timestamp" Direction="Descending"/>
+            </xcdg:DataGridCollectionViewSource.SortDescriptions>
+        </xcdg:DataGridCollectionViewSource>
+
+        <ContextMenu x:Key="GridContextMenu" DataContext="{Binding Path=PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
+            <MenuItem Header="Clear" Click="OnClearClick"/>
+            <MenuItem Header="Export" Click="OnExportClick"/>
+        </ContextMenu>
+
+        <Style TargetType="{x:Type xcdg:TableflowView}">
+            <Setter Property="ShowRowSelectorPane" Value="False"/>
+        </Style>
+    </UserControl.Resources>
+
+    <!-- see https://wpftoolkit.codeplex.com/ -->
+    <xcdg:DataGridControl Name="MessageGrid"
+                              AutoCreateColumns="False"
+                              AutoCreateForeignKeyConfigurations="False"
+                              IsTextSearchEnabled="True"
+                              HideSelection="True" 
+                              ReadOnly="True"
+                              NavigationBehavior="CellOnly"
+                              SelectionMode="Single"
+                              SelectionUnit="Cell"
+                              ItemsSource="{Binding Source={StaticResource MessageGridViewSource}}"
+                              ContextMenu="{StaticResource GridContextMenu}"
+                              ScrollViewer.CanContentScroll="True"
+                              ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                              ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+        <xcdg:DataGridControl.Columns>
+            <xcdg:Column FieldName="Icon" Title="" Width="20">
+                <xcdg:Column.CellContentTemplate>
+                    <DataTemplate>
+                        <Image Source="{xcdg:CellEditorBinding}" Width="16" Height="16"/>
+                    </DataTemplate>
+                </xcdg:Column.CellContentTemplate>
+            </xcdg:Column>
+
+            <xcdg:Column FieldName="Timestamp" Title="Timestamp" IsMainColumn="True" Width="125">
+                <xcdg:Column.CellContentTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding StringFormat='yyyy/MM/dd HH:mm:ss'}"/>
+                    </DataTemplate>
+                </xcdg:Column.CellContentTemplate>
+            </xcdg:Column>
+
+            <xcdg:Column FieldName="Level" Title="Level" Width="75"/>
+            <xcdg:Column FieldName="Message" Title="Message" Width="400">
+                <xcdg:Column.CellContentTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" ToolTip="{Binding}"/>
+                    </DataTemplate>
+                </xcdg:Column.CellContentTemplate>
+            </xcdg:Column>
+
+            <xcdg:Column FieldName="Exception" Title="Exception" Width="200">
+                <xcdg:Column.CellContentTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" ToolTip="{Binding}"/>
+                    </DataTemplate>
+                </xcdg:Column.CellContentTemplate>
+            </xcdg:Column>
+            <xcdg:Column FieldName="Category" Title="Category"/>
+            <xcdg:Column FieldName="Application" Title="Application"/>
+            <xcdg:Column FieldName="Machine" Title="Machine"/>
+            <xcdg:Column FieldName="User" Title="User"/>
+        </xcdg:DataGridControl.Columns>
+
+    </xcdg:DataGridControl>
+
+</UserControl>
