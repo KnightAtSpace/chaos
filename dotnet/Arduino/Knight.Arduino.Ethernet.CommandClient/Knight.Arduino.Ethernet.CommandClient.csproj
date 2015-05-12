@@ -15,17 +15,17 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\..\Build\Debug\Arduiono\</OutputPath>
+    <OutputPath>..\..\Build\Debug\Arduino\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
-    <DocumentationFile>..\..\Build\Debug\Arduiono\Knight.Arduino.Ethernet.CommandClient.XML</DocumentationFile>
+    <DocumentationFile>..\..\Build\Debug\Arduino\Knight.Arduino.Ethernet.CommandClient.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <OutputPath>..\..\Build\Release\Arduiono\</OutputPath>
+    <OutputPath>..\..\Build\Release\Arduino\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
