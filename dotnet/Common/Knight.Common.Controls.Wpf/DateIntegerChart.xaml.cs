@@ -28,6 +28,14 @@ namespace Knight.Common.Controls.Wpf
         public static readonly DependencyProperty LinesProperty = DependencyProperty.Register("Lines", typeof(ObservableCollection<DateIntegerChartLine>), typeof(DateIntegerChart), new FrameworkPropertyMetadata(new ObservableCollection<DateIntegerChartLine>(), OnLinesChanged));
 
         /// <summary>
+        /// Dependency property for automated fit into view.
+        /// </summary>
+        public static readonly DependencyProperty AutoFitIntoViewProperty = DependencyProperty.Register("AutoFitIntoView", typeof(bool), typeof(DateIntegerChart), new FrameworkPropertyMetadata(true, OnAutoFitIntoViewChanged));
+
+
+        private bool autoFitIntoView;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="LogMessageGrid"/> class.
         /// </summary>
         public DateIntegerChart()
@@ -59,6 +67,18 @@ namespace Knight.Common.Controls.Wpf
             set { SetValue(LinesProperty, value); }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [automatic fit into view].
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if [automatic fit into view]; otherwise, <c>false</c>.
+        /// </value>
+        public bool AutoFitIntoView
+        {
+            get { return (bool)GetValue(AutoFitIntoViewProperty); }
+            set { SetValue(AutoFitIntoViewProperty, value); }
+        }
+
         private static void OnYAxisTitleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             DateIntegerChart controlInstance = d as DateIntegerChart;
@@ -81,6 +101,16 @@ namespace Knight.Common.Controls.Wpf
             }
         }
 
+        private static void OnAutoFitIntoViewChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            DateIntegerChart controlInstance = d as DateIntegerChart;
+
+            if (controlInstance != null)
+            {
+                controlInstance.OnAutoFitIntoViewChanged(e);
+            }
+        }
+
         private void OnLinesChanged(DependencyPropertyChangedEventArgs e)
         {
             if (this.Lines != null)
@@ -93,6 +123,11 @@ namespace Knight.Common.Controls.Wpf
 
             // ecplicit call initially changed event to update the chart
             this.LinesCollectionChanged(this, new System.Collections.Specialized.NotifyCollectionChangedEventArgs(System.Collections.Specialized.NotifyCollectionChangedAction.Reset));
+        }
+
+        private void OnAutoFitIntoViewChanged(DependencyPropertyChangedEventArgs e)
+        {
+            this.autoFitIntoView = (bool)e.NewValue;
         }
 
         private void LinesCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -139,9 +174,12 @@ namespace Knight.Common.Controls.Wpf
 
         private void PointSource_DataChanged(object sender, EventArgs e)
         {
-            this.Plotter.Viewport.FitToView();
+            if (this.autoFitIntoView)
+            {
+                this.Plotter.Viewport.FitToView();
+            }
         }
-        
+
         private void Init()
         {
 
