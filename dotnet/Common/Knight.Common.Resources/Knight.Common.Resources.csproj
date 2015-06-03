@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4C795E90-D6F2-4361-BC7A-A4052CC5A86E}</ProjectGuid>
+    <ProjectGuid>{56FC1BD4-1A5D-495F-ABEE-A64FB3F1060C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Knight.Common.Resources</RootNamespace>

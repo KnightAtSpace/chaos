@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{79B50469-1D18-4B14-9632-0370FEAEA227}</ProjectGuid>
+    <ProjectGuid>{2C3BA13F-280F-4A96-B81B-8DC7E000A53B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Knight.Arduino.Ethernet.CommandClient</RootNamespace>

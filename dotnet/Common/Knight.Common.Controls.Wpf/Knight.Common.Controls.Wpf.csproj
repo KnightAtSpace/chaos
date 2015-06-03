@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E2B721F4-10C7-49D3-9034-0CDEB5E37169}</ProjectGuid>
+    <ProjectGuid>{AB822566-B445-4806-B5DA-2981458299A8}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Knight.Common.Controls.Wpf</RootNamespace>
@@ -51,10 +51,6 @@
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\external\lib\dotnet\log4net\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Office.Interop.Excel">
-      <HintPath>..\..\External\Lib\WpfExtendedDataGrid\Microsoft.Office.Interop.Excel.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -125,12 +121,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Knight.Common.Resources\Knight.Common.Resources.csproj">
-      <Project>{4c795e90-d6f2-4361-bc7a-a4052cc5a86e}</Project>
+      <Project>{56fc1bd4-1a5d-495f-abee-a64fb3f1060c}</Project>
       <Name>Knight.Common.Resources</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Knight.Common\Knight.Common.csproj">
-      <Project>{48d9463e-65c7-4f3f-bfec-3aa0f8f104e3}</Project>
-      <Name>Knight.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
