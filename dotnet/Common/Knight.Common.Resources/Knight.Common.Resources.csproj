@@ -79,6 +79,12 @@
     <Resource Include="Icons\16x16\Refresh.png" />
     <Resource Include="Icons\16x16\Save.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\16x16\StatusGreen.png" />
+    <Resource Include="Icons\16x16\StatusGrey.png" />
+    <Resource Include="Icons\16x16\StatusRed.png" />
+    <Resource Include="Icons\16x16\StatusYellow.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

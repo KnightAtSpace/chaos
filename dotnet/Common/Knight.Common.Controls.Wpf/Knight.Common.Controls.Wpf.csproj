@@ -84,6 +84,9 @@
       <DependentUpon>DateIntegerChart.xaml</DependentUpon>
     </Compile>
     <Compile Include="Messaging\Messenger.cs" />
+    <Compile Include="StatusSignal.xaml.cs">
+      <DependentUpon>StatusSignal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\ClosableTabItem.cs" />
     <Compile Include="Model\DateIntegerChartLine.cs" />
     <Compile Include="Model\DateIntegerPair.cs" />
@@ -111,6 +114,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="LogMessageGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StatusSignal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

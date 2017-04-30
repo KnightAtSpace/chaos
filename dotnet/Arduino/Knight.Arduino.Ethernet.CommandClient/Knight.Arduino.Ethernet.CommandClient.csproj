@@ -47,18 +47,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client.cs" />
-    <Compile Include="CommandClient.cs" />
-    <Compile Include="Enum\DIGITAL_VALUE.cs" />
-    <Compile Include="Enum\COMMAND.cs" />
-    <Compile Include="Enum\PIN_ANALOG.cs" />
-    <Compile Include="Enum\PIN_DIGITAL.cs" />
-    <Compile Include="Enum\PIN_MODE.cs" />
-    <Compile Include="Enum\RESULT_STATUS.cs" />
-    <Compile Include="Exceptions\CommandClientException.cs" />
-    <Compile Include="Pin.cs" />
+    <Compile Include="..\Knight.Arduino.Ethernet.CommandClient.Core\Client.cs">
+      <Link>Client.cs</Link>
+    </Compile>
+    <Compile Include="..\Knight.Arduino.Ethernet.CommandClient.Core\CommandClient.cs">
+      <Link>CommandClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Knight.Arduino.Ethernet.CommandClient.Core\Enum\COMMAND.cs">
+      <Link>Enum\COMMAND.cs</Link>
+    </Compile>
+    <Compile Include="..\Knight.Arduino.Ethernet.CommandClient.Core\Enum\DIGITAL_VALUE.cs">
+      <Link>Enum\DIGITAL_VALUE.cs</Link>
+    </Compile>
+    <Compile Include="..\Knight.Arduino.Ethernet.CommandClient.Core\Enum\PIN_ANALOG.cs">
+      <Link>Enum\PIN_ANALOG.cs</Link>
+    </Compile>
+    <Compile Include="..\Knight.Arduino.Ethernet.CommandClient.Core\Enum\PIN_DIGITAL.cs">
+      <Link>Enum\PIN_DIGITAL.cs</Link>
+    </Compile>
+    <Compile Include="..\Knight.Arduino.Ethernet.CommandClient.Core\Enum\PIN_MODE.cs">
+      <Link>Enum\PIN_MODE.cs</Link>
+    </Compile>
+    <Compile Include="..\Knight.Arduino.Ethernet.CommandClient.Core\Enum\RESULT_STATUS.cs">
+      <Link>Enum\RESULT_STATUS.cs</Link>
+    </Compile>
+    <Compile Include="..\Knight.Arduino.Ethernet.CommandClient.Core\Exceptions\CommandClientException.cs">
+      <Link>Exceptions\CommandClientException.cs</Link>
+    </Compile>
+    <Compile Include="..\Knight.Arduino.Ethernet.CommandClient.Core\Pin.cs">
+      <Link>Pin.cs</Link>
+    </Compile>
+    <Compile Include="..\Knight.Arduino.Ethernet.CommandClient.Core\ReceivedResult.cs">
+      <Link>ReceivedResult.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReceivedResult.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
